@@ -46,5 +46,5 @@ end
 
 target 'ImageNotification' do
   use_frameworks! :linkage => :static
-  pod 'Firebase/Messaging', '~> 9.6.0' # eg 6.31.0
+  pod 'Firebase/Messaging', '~> 10.0.0' # eg 6.31.0
 end
