@@ -2,8 +2,8 @@ import {View, TextInput, TextInputProps, StyleSheet} from 'react-native';
 import React, {useRef, useState} from 'react';
 import {AppText} from './AppText';
 import {colors} from '../../assets/theme/colors';
-import {typography} from '../../assets/theme/typography';
 import AppIcon from './AppIcon';
+import useTypography from '../../hooks/useTypography';
 
 type AppTextInputType = TextInputProps & {
   value: string;
@@ -25,6 +25,7 @@ export const AppTextInput: React.FC<AppTextInputType> = ({
 }) => {
   const textInput = useRef<TextInput>(null);
   const [isFocused, setIsFocused] = useState(false);
+  const typography = useTypography();
 
   return (
     <View style={styles.container}>
@@ -32,7 +33,7 @@ export const AppTextInput: React.FC<AppTextInputType> = ({
         <AppText
           style={{
             color: error ? colors.theme.danger : colors.theme.black,
-            fontSize: typography.s1.fontSize,
+            // fontSize: typography.s1.fontSize,
           }}>
           {title ?? otherProps.placeholder}
         </AppText>

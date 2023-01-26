@@ -3,7 +3,6 @@ import React, {useState} from 'react';
 import {AppText} from './AppText';
 import {colors} from '../../assets/theme/colors';
 // import FastImage, {FastImageProps} from 'react-native-fast-image';
-import {typography} from '../../assets/theme/typography';
 
 const calcBorderRaduis = (
   shape: AppAvatarType['shape'],

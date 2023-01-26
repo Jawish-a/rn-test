@@ -2,8 +2,8 @@ import {Pressable, PressableProps, StyleSheet, View} from 'react-native';
 import React from 'react';
 import {AppText} from './AppText';
 import {colors} from '../../assets/theme/colors';
-import {typography} from '../../assets/theme/typography';
 import {AppButtonGroupType} from '../../constants/Types';
+import useTypography from '../../hooks/useTypography';
 
 export const AppButtonGroup: React.FC<AppButtonGroupType & PressableProps> = ({
   action,
@@ -12,6 +12,8 @@ export const AppButtonGroup: React.FC<AppButtonGroupType & PressableProps> = ({
   isEnabled = [true],
   ...otherProps
 }) => {
+  const typography = useTypography();
+
   return (
     <View style={styles.container}>
       {textValue.map((item, i) => {
@@ -31,7 +33,7 @@ export const AppButtonGroup: React.FC<AppButtonGroupType & PressableProps> = ({
             <AppText
               style={[
                 {
-                  ...typography.label,
+                  // ...typography.label,
                   textTransform: 'uppercase',
                   fontSize: size,
                 },

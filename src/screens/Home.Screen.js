@@ -41,7 +41,9 @@ export const HomeScreen = ({}) => {
           iconPosition={'left'}
         />
         <AppText>Home Screen</AppText>
-        <AppText appTextColor={'primary'}>{t('common.hello')}</AppText>
+        <AppText variant={'label'} appTextColor={'primary'}>
+          {t('common.hello')}
+        </AppText>
         <AppText appTextColor={'primary'}>{t('common.hello')}</AppText>
         <AppText appTextColor={'success'}>I AM success</AppText>
         <AppText appTextColor={'info'}>I AM info</AppText>
@@ -78,15 +80,15 @@ export const HomeScreen = ({}) => {
                 alignItems: 'center',
               }}>
               <AppButton
-                onPress={() => setLocalStorageLanguage('en')}
+                onPress={() => i18n.changeLanguage('en')}
                 size={12}
                 textValue={'Change to EN'}
                 icon={'box'}
                 iconPosition={'right'}
-                isEnabled={false}
+                // isEnabled={false}
               />
               <AppButton
-                onPress={() => setLocalStorageLanguage('ar')}
+                onPress={() => i18n.changeLanguage('ar')}
                 size={12}
                 textValue={'Change to AR'}
                 icon={'cloud-rain'}

@@ -57,7 +57,9 @@ export const AppCheckBox: React.FC<AppCheckBoxType> = ({
       </Pressable>
       <AppEmptySpace width={8} />
       <Pressable onPress={changeState}>
-        <AppText style={[textStyle]}>{text}</AppText>
+        <AppText variant={'p1'} style={[textStyle]}>
+          {text}
+        </AppText>
       </Pressable>
     </View>
   );

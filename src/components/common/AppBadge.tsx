@@ -2,7 +2,7 @@ import {View, ViewProps} from 'react-native';
 import React from 'react';
 import {AppText} from './AppText';
 import {colors} from '../../assets/theme/colors';
-import {typography} from '../../assets/theme/typography';
+import useTypography from '../../hooks/useTypography';
 
 type AppBadge = ViewProps & {
   textValue: string;
@@ -11,12 +11,14 @@ type AppBadge = ViewProps & {
 };
 
 export const AppButton: React.FC<AppBadge> = ({textValue, size, status}) => {
+  const typography = useTypography();
+
   return (
     <View style={{backgroundColor: colors.theme[status]}}>
       <AppText
         style={[
           {
-            ...typography.label,
+            // ...typography.label,
             textTransform: 'uppercase',
             fontSize: size,
           },

@@ -2,9 +2,9 @@ import {Pressable, PressableProps, StyleSheet, View} from 'react-native';
 import React from 'react';
 import {AppText} from './AppText';
 import {colors} from '../../assets/theme/colors';
-import {typography} from '../../assets/theme/typography';
 import AppIcon from './AppIcon';
 import {AppButtonIconComonentType, AppButtonType} from '../../constants/Types';
+import useTypography from '../../hooks/useTypography';
 
 const AppButtonIconComonent = ({
   size,
@@ -36,6 +36,7 @@ export const AppButton: React.FC<PressableProps & AppButtonType> = ({
 }) => {
   const showLeftIcon = icon && iconPosition !== 'right';
   const showRightIcon = icon && iconPosition !== 'left' && !!iconPosition;
+  const typography = useTypography();
 
   return (
     <Pressable
@@ -60,7 +61,7 @@ export const AppButton: React.FC<PressableProps & AppButtonType> = ({
       <AppText
         style={[
           {
-            ...typography.label,
+            // ...typography.label,
             textTransform: 'uppercase',
             fontSize: size,
           },
