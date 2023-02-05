@@ -1,41 +1,36 @@
-import React, {useRef} from 'react';
-import {
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
-  View,
-} from 'react-native';
-import FlashMessage from 'react-native-flash-message';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {Header} from './Header';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import { colors } from 'assets/theme/colors';
+import { StyleSheet, useColorScheme, View } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { Header } from './Header';
 
 type MainLayoutType = {
-  title: string;
+    title: string;
+    children: React.ReactNode;
 };
 
-export const MainLayout: React.FC<MainLayoutType> = ({title, children}) => {
-  const isDarkMode = useColorScheme() === 'dark';
+export const MainLayout: React.FC<MainLayoutType> = ({ title, children }) => {
+    const isDarkMode = useColorScheme() === 'dark';
+    const backgroundStyle = {
+        backgroundColor: isDarkMode ? colors.theme.dark : colors.theme.white,
+    };
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <View style={[backgroundStyle, {flex: 1}]}>
-      <Header title={title} />
-      <KeyboardAwareScrollView
-        style={{backgroundColor: '#ffffff'}}
-        // contentContainerStyle={{ flex: 1 }}
-        scrollEnabled={true}
-        //
-      >
-        {children}
-      </KeyboardAwareScrollView>
-      <FlashMessage position="top" />
-    </View>
-  );
+    return (
+        <View style={[styles.container, backgroundStyle]}>
+            <Header title={title} />
+            <KeyboardAwareScrollView
+                style={backgroundStyle}
+                // contentContainerStyle={{ flex: 1 }}
+                scrollEnabled={true}
+                //
+            >
+                {children}
+            </KeyboardAwareScrollView>
+        </View>
+    );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+});

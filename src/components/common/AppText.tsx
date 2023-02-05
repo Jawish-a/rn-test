@@ -1,41 +1,39 @@
-import {StyleSheet, Text, TextProps, useColorScheme} from 'react-native';
+import { colors } from 'assets/theme/colors';
+import { typography } from 'assets/theme/typography';
+import useTypography from 'hooks/useTypography';
 import React from 'react';
-import {colors} from '../../assets/theme/colors';
-import {renderAppColor} from '../../utils/renderAppColor';
-import useTypography from '../../hooks/useTypography';
-import {getThemeTypography} from '../../assets/theme/typography';
+import { StyleSheet, Text, TextProps } from 'react-native';
 
-type TypographyVariant = keyof typeof getThemeTypography;
+type TypographyVariant = keyof typeof typography;
 
 type AppTextType = {
-  appTextStatus?: 'enabled' | 'disabled';
-  appTextColor?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
-  variant: TypographyVariant;
+    appTextStatus?: 'enabled' | 'disabled';
+    appTextColor?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
+    variant: TypographyVariant | string;
 };
 
 export const AppText: React.FC<TextProps & AppTextType> = ({
-  appTextColor,
-  // appTextStatus = 'enabled',
-  children,
-  variant = 'p1',
-  ...otherProps
+    // appTextStatus = 'enabled',
+    children,
+    variant,
+    ...otherProps
 }) => {
-  const isDarkMode = useColorScheme() === 'dark';
-  const typography = useTypography();
+    const typo = useTypography();
 
-  return (
-    <Text
-      // selectable={true}
-      // selectionColor={colors.blue[100]}
-      {...otherProps}
-      style={[styles.text, {...typography[variant]}, otherProps.style]}>
-      {children}
-    </Text>
-  );
+    return (
+        <Text
+            // selectable={true}
+            // selectionColor={colors.red[300]}
+            {...otherProps}
+            style={[styles.text, { ...typo[variant] }, otherProps.style]}>
+            {children}
+        </Text>
+    );
 };
 
 const styles = StyleSheet.create({
-  text: {
-    color: colors.theme.black,
-  },
+    text: {
+        color: colors.theme.black,
+        includeFontPadding: false,
+    },
 });

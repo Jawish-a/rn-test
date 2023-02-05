@@ -1,4 +1,5 @@
 {
-  "name": "AwesomeTSProject",
-  "displayName": "AwesomeTSProject"
+    "name": "AwesomeTSProject",
+    "displayName": "AwesomeTSProject",
+    "version": "1.0.0"
 }

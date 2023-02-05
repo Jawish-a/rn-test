@@ -1,67 +1,64 @@
-import {Pressable, PressableProps, StyleSheet, View} from 'react-native';
+import { AppButtonGroupType } from 'constants/types';
+import { colors } from 'assets/theme/colors';
 import React from 'react';
-import {AppText} from './AppText';
-import {colors} from '../../assets/theme/colors';
-import {AppButtonGroupType} from '../../constants/Types';
-import useTypography from '../../hooks/useTypography';
+import { Pressable, PressableProps, StyleSheet, View } from 'react-native';
+import { AppText } from './AppText';
 
 export const AppButtonGroup: React.FC<AppButtonGroupType & PressableProps> = ({
-  action,
-  size,
-  textValue,
-  isEnabled = [true],
-  ...otherProps
+    action,
+    size,
+    textValue,
+    isEnabled = [true],
+    ...otherProps
 }) => {
-  const typography = useTypography();
-
-  return (
-    <View style={styles.container}>
-      {textValue.map((item, i) => {
-        return (
-          <Pressable
-            key={textValue[i]}
-            style={[
-              styles.basic,
-              !isEnabled[i] && styles.disabled,
-              {
-                paddingHorizontal: size,
-                paddingVertical: size / 2,
-              },
-            ]}
-            {...otherProps}
-            onPress={isEnabled[i] ? () => action[i]() : null}>
-            <AppText
-              style={[
-                {
-                  // ...typography.label,
-                  textTransform: 'uppercase',
-                  fontSize: size,
-                },
-                !isEnabled[i] && styles.disabled,
-              ]}>
-              {textValue[i]}
-            </AppText>
-          </Pressable>
-        );
-      })}
-    </View>
-  );
+    return (
+        <View style={styles.container}>
+            {textValue.map((_: string, i: number) => {
+                return (
+                    <Pressable
+                        key={textValue[i]}
+                        style={[
+                            styles.basic,
+                            !isEnabled[i] && styles.disabled,
+                            {
+                                paddingHorizontal: size,
+                                paddingVertical: size / 2,
+                            },
+                        ]}
+                        {...otherProps}
+                        onPress={isEnabled[i] ? () => action[i]() : null}>
+                        <AppText
+                            variant={'label'}
+                            style={[
+                                styles.label,
+                                !isEnabled[i] && styles.disabled,
+                            ]}>
+                            {textValue[i]}
+                        </AppText>
+                    </Pressable>
+                );
+            })}
+        </View>
+    );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-  },
-  basic: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderColor: colors.theme.primary,
-    borderWidth: 1,
-    flexDirection: 'row',
-  },
-  disabled: {
-    backgroundColor: colors.gray[300],
-    borderColor: colors.gray[400],
-    color: colors.gray[500],
-  },
+    container: {
+        flexDirection: 'row',
+    },
+    basic: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderColor: colors.theme.primary,
+        borderWidth: 1,
+        flexDirection: 'row',
+    },
+    label: {
+        textTransform: 'uppercase',
+    },
+    disabled: {
+        backgroundColor: colors.gray[300],
+        borderColor: colors.gray[400],
+        color: colors.gray[500],
+    },
 });

@@ -1,32 +1,29 @@
-import {View, ViewProps} from 'react-native';
+import { colors } from 'assets/theme/colors';
 import React from 'react';
-import {AppText} from './AppText';
-import {colors} from '../../assets/theme/colors';
-import useTypography from '../../hooks/useTypography';
+import { View, ViewProps } from 'react-native';
+import { AppText } from './AppText';
 
 type AppBadge = ViewProps & {
-  textValue: string;
-  size: number;
-  status: 'primary' | 'success' | 'info' | 'light' | 'warning' | 'danger';
+    textValue: string;
+    size: number;
+    status: 'primary' | 'success' | 'info' | 'light' | 'warning' | 'danger';
 };
 
-export const AppButton: React.FC<AppBadge> = ({textValue, size, status}) => {
-  const typography = useTypography();
-
-  return (
-    <View style={{backgroundColor: colors.theme[status]}}>
-      <AppText
-        style={[
-          {
-            // ...typography.label,
-            textTransform: 'uppercase',
-            fontSize: size,
-          },
-        ]}>
-        {textValue}
-      </AppText>
-    </View>
-  );
+export const AppButton: React.FC<AppBadge> = ({ textValue, size, status }) => {
+    return (
+        <View style={{ backgroundColor: colors.theme[status] }}>
+            <AppText
+                variant={'label'}
+                style={[
+                    {
+                        textTransform: 'uppercase',
+                        fontSize: size,
+                    },
+                ]}>
+                {textValue}
+            </AppText>
+        </View>
+    );
 };
 
 // const styles = StyleSheet.create({
