@@ -1,5 +1,5 @@
 import { colors } from 'assets/theme/colors';
-import { StyleSheet, useColorScheme, View } from 'react-native';
+import { useColorScheme, View, ViewStyle } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { Header } from './Header';
 
@@ -15,7 +15,7 @@ export const MainLayout: React.FC<MainLayoutType> = ({ title, children }) => {
     };
 
     return (
-        <View style={[styles.container, backgroundStyle]}>
+        <View style={[$container, backgroundStyle]}>
             <Header title={title} />
             <KeyboardAwareScrollView
                 style={backgroundStyle}
@@ -29,8 +29,7 @@ export const MainLayout: React.FC<MainLayoutType> = ({ title, children }) => {
     );
 };
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-});
+// Styles
+const $container: ViewStyle = {
+    flex: 1,
+};

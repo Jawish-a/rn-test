@@ -19,18 +19,3 @@ export const AppButton: React.FC<AppBadge> = ({ textValue, size, status }) => {
         </View>
     );
 };
-
-// const styles = StyleSheet.create({
-//   basic: {
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     borderColor: colors.theme.primary,
-//     borderWidth: 1,
-//     flexDirection: 'row',
-//   },
-//   disabled: {
-//     backgroundColor: colors.gray[300],
-//     borderColor: colors.gray[400],
-//     color: colors.gray[500],
-//   },
-// });

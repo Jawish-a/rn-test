@@ -1,6 +1,6 @@
 import { AppSwitchType } from 'constants/types';
 import { colors } from 'assets/theme/colors';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View, ViewStyle } from 'react-native';
 import { PanGestureHandler } from 'react-native-gesture-handler';
 import Animated, {
     interpolate,
@@ -124,19 +124,19 @@ export const AppSwitch: React.FC<AppSwitchType> = ({
     return (
         <View
             style={[
-                styles.container,
+                $container,
                 { flexDirection: isTextDirectionRight ? 'row' : 'row-reverse' },
             ]}>
             <PanGestureHandler onGestureEvent={eventHandler}>
                 <Animated.View
                     style={[
-                        styles.switchTrack,
+                        $switchTrack,
                         animatedTrack,
                         { transform: [{ scale: scale }] },
                     ]}>
                     <Animated.View
                         style={[
-                            styles.switchKnob,
+                            $switchKnob,
                             animatedCircle,
                             animatedCircleScale,
                         ]}
@@ -145,31 +145,28 @@ export const AppSwitch: React.FC<AppSwitchType> = ({
             </PanGestureHandler>
             <AppEmptySpace width={8} />
             <Pressable onPress={changeState}>
-                <AppText variant={'p1'} style={[]}>
-                    {text}
-                </AppText>
+                <AppText variant={'p1'}>{text}</AppText>
             </Pressable>
         </View>
     );
 };
 
-const styles = StyleSheet.create({
-    container: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    },
-    switchTrack: {
-        height: HEIGHT,
-        width: WIDTH,
-        borderRadius: WIDTH / 2,
-        justifyContent: 'center',
-        paddingHorizontal: 2,
-    },
-    switchKnob: {
-        backgroundColor: 'white',
-        width: WIDTH / 2 + 1,
-        height: WIDTH / 2 + 1,
-        borderRadius: WIDTH / 2,
-    },
-});
+// Styles
+const $container: ViewStyle = {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+};
+const $switchTrack: ViewStyle = {
+    height: HEIGHT,
+    width: WIDTH,
+    borderRadius: WIDTH / 2,
+    justifyContent: 'center',
+    paddingHorizontal: 2,
+};
+const $switchKnob: ViewStyle = {
+    backgroundColor: 'white',
+    width: WIDTH / 2 + 1,
+    height: WIDTH / 2 + 1,
+    borderRadius: WIDTH / 2,
+};

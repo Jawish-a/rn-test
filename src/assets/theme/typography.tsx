@@ -1,30 +1,5 @@
+import { TypographyType } from 'constants/types';
 import { colors } from './colors';
-
-export type TypographyValueType = {
-    fontSize: 36 | 32 | 30 | 26 | 22 | 18 | 15 | 13 | 12 | 10;
-    fontFamily:
-        | 'Almarai-Light'
-        | 'Almarai-Bold'
-        | 'Almarai-ExtraBold'
-        | 'Almarai-Regular'
-        | 'OpenSans-Bold'
-        | 'OpenSans-BoldItalic'
-        | 'OpenSans-ExtraBold'
-        | 'OpenSans-ExtraBoldItalic'
-        | 'OpenSans-Italic'
-        | 'OpenSans-Light'
-        | 'OpenSans-LightItalic'
-        | 'OpenSans-Medium'
-        | 'OpenSans-MediumItalic'
-        | 'OpenSans-Regular'
-        | 'OpenSans-SemiBold'
-        | 'OpenSans-SemiBoldItalic';
-    color?: string;
-    lineHeight?: number;
-};
-export type TypographyType = {
-    [name: string]: TypographyValueType;
-};
 
 export const typography = (
     isRTL: boolean,

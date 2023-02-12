@@ -1,15 +1,7 @@
+import { AppTextType } from 'constants/types';
 import { colors } from 'assets/theme/colors';
-import { typography } from 'assets/theme/typography';
-import useTypography from 'hooks/useTypography';
-import { StyleSheet, Text, TextProps } from 'react-native';
-
-type TypographyVariant = keyof typeof typography;
-
-type AppTextType = {
-    appTextStatus?: 'enabled' | 'disabled';
-    appTextColor?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
-    variant: TypographyVariant | string;
-};
+import { useTypography } from 'hooks/useTypography';
+import { Text, TextProps, TextStyle } from 'react-native';
 
 export const AppText: React.FC<TextProps & AppTextType> = ({
     // appTextStatus = 'enabled',
@@ -24,15 +16,14 @@ export const AppText: React.FC<TextProps & AppTextType> = ({
             // selectable={true}
             // selectionColor={colors.red[300]}
             {...otherProps}
-            style={[styles.text, { ...typo[variant] }, otherProps.style]}>
+            style={[$text, { ...typo[variant] }, otherProps.style]}>
             {children}
         </Text>
     );
 };
 
-const styles = StyleSheet.create({
-    text: {
-        color: colors.theme.black,
-        includeFontPadding: false,
-    },
-});
+// Styles
+const $text: TextStyle = {
+    color: colors.theme.black,
+    includeFontPadding: false,
+};

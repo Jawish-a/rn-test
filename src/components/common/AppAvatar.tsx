@@ -1,6 +1,6 @@
 import { AppAvatarType } from 'constants/types';
 import { colors } from 'assets/theme/colors';
-import useTypography from 'hooks/useTypography';
+import { useTypography } from 'hooks/useTypography';
 import { useState } from 'react';
 import { View, Image, ImageProps, ViewStyle, TextStyle } from 'react-native';
 import { calcBorderRaduis } from 'utils/calcBorderRaduis';

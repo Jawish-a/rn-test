@@ -1,10 +1,4 @@
-type ColorType = {
-    [name: string]: string;
-};
-
-type ColorCollectionType = {
-    [name: string]: ColorType;
-};
+import { ColorCollectionType } from 'constants/types';
 
 export const colors: ColorCollectionType = {
     // primaryColor: config.PRIMARY_COLOR,
@@ -20,6 +14,8 @@ export const colors: ColorCollectionType = {
         info: '#0095ff',
         warning: '#ffaa00',
         danger: '#ff3d71',
+        shadow: '#c4c4c4',
+        shadowDark: '#191919',
     },
 
     slate: {

@@ -59,7 +59,9 @@ export const HomeScreen = () => {
                         () => {
                             console.log('hi');
                         },
-                        () => nav.navigate(SCREEN_NAMES.typographyExample),
+                        () => {
+                            nav.navigate(SCREEN_NAMES.typographyExample);
+                        },
                     ]}
                 />
                 <AppAvatar

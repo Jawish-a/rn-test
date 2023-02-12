@@ -5,7 +5,7 @@ import { MainLayout } from 'components/layouts/Main.Layout';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 
-export const TypographyExampleScreen = ({}) => {
+export const TypographyExampleScreen = () => {
     const nav = useNavigation();
     const route = useRoute();
     const { t } = useTranslation();

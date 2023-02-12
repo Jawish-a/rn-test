@@ -1,5 +1,4 @@
 import { AppEmptySpaceType } from 'constants/types';
-import React from 'react';
 import { View } from 'react-native';
 
 export const AppEmptySpace: React.FC<AppEmptySpaceType> = ({

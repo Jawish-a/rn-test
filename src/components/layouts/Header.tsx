@@ -1,22 +1,16 @@
+import { HeaderType } from 'constants/types';
 import { useDrawerStatus } from '@react-navigation/drawer';
 import { useNavigation, useNavigationState } from '@react-navigation/native';
 import { colors } from 'assets/theme/colors';
-import React from 'react';
 import {
     SafeAreaView,
     StatusBar,
-    StyleSheet,
     useColorScheme,
     View,
+    ViewStyle,
 } from 'react-native';
-import { ScreenProps } from 'react-native-screens';
-
 import { ActionContainer } from './ActionContainer';
 import { MiddleTextContainer } from './MiddleTextContainer';
-
-type HeaderType = ScreenProps & {
-    title: string;
-};
 
 export const Header: React.FC<HeaderType> = ({ title }) => {
     const isDarkMode = useColorScheme() === 'dark';
@@ -38,14 +32,12 @@ export const Header: React.FC<HeaderType> = ({ title }) => {
 
     return (
         <SafeAreaView
-            style={
-                isDarkMode ? styles.safeAreaViewDarkMode : styles.safeAreaView
-            }>
+            style={isDarkMode ? $safeAreaViewDarkMode : $safeAreaView}>
             <StatusBar
                 barStyle={isDarkMode ? 'light-content' : 'dark-content'}
                 animated={true}
             />
-            <View style={styles.container}>
+            <View style={$container}>
                 <ActionContainer
                     onPress={canGoBack ? handleOnPress : openDrawer}
                     name={canGoBack ? 'chevron-left' : 'menu'}
@@ -57,45 +49,45 @@ export const Header: React.FC<HeaderType> = ({ title }) => {
     );
 };
 
-const styles = StyleSheet.create({
-    safeAreaView: {
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        shadowOffset: {
-            width: 0,
-            height: 0,
-        },
-        shadowOpacity: 0.8,
-        shadowRadius: 10,
-        elevation: 10,
-        backgroundColor: colors.theme.white,
-        shadowColor: '#c4c4c4',
+// Styles
+const $safeAreaView: ViewStyle = {
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowOffset: {
+        width: 0,
+        height: 0,
     },
-    safeAreaViewDarkMode: {
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        shadowOffset: {
-            width: 0,
-            height: 0,
-        },
-        shadowOpacity: 0.8,
-        shadowRadius: 10,
-        elevation: 10,
-        shadowColor: '#191919',
-        backgroundColor: colors.theme.dark,
+    shadowOpacity: 0.8,
+    shadowRadius: 10,
+    elevation: 10,
+    backgroundColor: colors.theme.white,
+    shadowColor: colors.theme.shadow,
+};
+const $safeAreaViewDarkMode: ViewStyle = {
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowOffset: {
+        width: 0,
+        height: 0,
     },
-    container: {
-        alignItems: 'center',
-        height: 50,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    },
-    textContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100%',
-        flex: 1,
-    },
-});
+    shadowOpacity: 0.8,
+    shadowRadius: 10,
+    elevation: 10,
+    shadowColor: colors.theme.shadowDark,
+    backgroundColor: colors.theme.dark,
+};
+
+const $container: ViewStyle = {
+    alignItems: 'center',
+    height: 50,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+};
+const $textContainer: ViewStyle = {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
+    flex: 1,
+};

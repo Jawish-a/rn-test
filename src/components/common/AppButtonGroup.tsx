@@ -1,6 +1,12 @@
 import { AppButtonGroupType } from 'constants/types';
 import { colors } from 'assets/theme/colors';
-import { Pressable, PressableProps, StyleSheet, View } from 'react-native';
+import {
+    Pressable,
+    PressableProps,
+    TextStyle,
+    View,
+    ViewStyle,
+} from 'react-native';
 import { AppText } from './AppText';
 
 export const AppButtonGroup: React.FC<AppButtonGroupType & PressableProps> = ({
@@ -11,14 +17,14 @@ export const AppButtonGroup: React.FC<AppButtonGroupType & PressableProps> = ({
     ...otherProps
 }) => {
     return (
-        <View style={styles.container}>
+        <View style={$container}>
             {textValue.map((_: string, i: number) => {
                 return (
                     <Pressable
                         key={textValue[i]}
                         style={[
-                            styles.basic,
-                            !isEnabled[i] && styles.disabled,
+                            $basic,
+                            !isEnabled[i] && $disabled,
                             {
                                 paddingHorizontal: size,
                                 paddingVertical: size / 2,
@@ -28,10 +34,7 @@ export const AppButtonGroup: React.FC<AppButtonGroupType & PressableProps> = ({
                         onPress={isEnabled[i] ? () => action[i]() : null}>
                         <AppText
                             variant={'label'}
-                            style={[
-                                styles.label,
-                                !isEnabled[i] && styles.disabled,
-                            ]}>
+                            style={[$label, !isEnabled[i] && $disabled]}>
                             {textValue[i]}
                         </AppText>
                     </Pressable>
@@ -41,23 +44,22 @@ export const AppButtonGroup: React.FC<AppButtonGroupType & PressableProps> = ({
     );
 };
 
-const styles = StyleSheet.create({
-    container: {
-        flexDirection: 'row',
-    },
-    basic: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderColor: colors.theme.primary,
-        borderWidth: 1,
-        flexDirection: 'row',
-    },
-    label: {
-        textTransform: 'uppercase',
-    },
-    disabled: {
-        backgroundColor: colors.gray[300],
-        borderColor: colors.gray[400],
-        color: colors.gray[500],
-    },
-});
+// Styles
+const $container: ViewStyle = {
+    flexDirection: 'row',
+};
+const $basic: ViewStyle = {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderColor: colors.theme.primary,
+    borderWidth: 1,
+    flexDirection: 'row',
+};
+const $label: TextStyle = {
+    textTransform: 'uppercase',
+};
+const $disabled: TextStyle = {
+    backgroundColor: colors.gray[300],
+    borderColor: colors.gray[400],
+    color: colors.gray[500],
+};

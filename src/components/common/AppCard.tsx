@@ -1,6 +1,6 @@
 import { AppCardType } from 'constants/types';
 import { colors } from 'assets/theme/colors';
-import { StyleSheet, View, ViewProps } from 'react-native';
+import { View, ViewProps, ViewStyle } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { AppText } from './AppText';
 
@@ -12,7 +12,7 @@ export const AppCard: React.FC<ViewProps & AppCardType> = ({
     children,
 }) => {
     return (
-        <View style={styles.container}>
+        <View style={$container}>
             {headerImage && (
                 <FastImage
                     source={{
@@ -25,38 +25,37 @@ export const AppCard: React.FC<ViewProps & AppCardType> = ({
                 />
             )}
             {!!headerText && (
-                <View style={styles.title}>
+                <View style={$title}>
                     <AppText variant={'label'} appTextColor={'primary'}>
                         {headerText}
                     </AppText>
                 </View>
             )}
-            <View style={styles.content}>{children}</View>
+            <View style={$content}>{children}</View>
             {footerComponent && (
-                <View style={styles.footerComponent}>{footerComponent}</View>
+                <View style={$footerComponent}>{footerComponent}</View>
             )}
         </View>
     );
 };
 
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: colors.theme.white,
-        width: '90%',
-        borderWidth: 0.5,
-        borderColor: colors.gray[300],
-    },
-    title: {
-        borderBottomColor: colors.gray[300],
-        borderBottomWidth: 0.5,
-        padding: 16,
-    },
-    content: {
-        padding: 16,
-    },
-    footerComponent: {
-        borderTopColor: colors.gray[300],
-        borderTopWidth: 0.5,
-        padding: 16,
-    },
-});
+// Styles
+const $container: ViewStyle = {
+    backgroundColor: colors.theme.white,
+    width: '90%',
+    borderWidth: 0.5,
+    borderColor: colors.gray[300],
+};
+const $title: ViewStyle = {
+    borderBottomColor: colors.gray[300],
+    borderBottomWidth: 0.5,
+    padding: 16,
+};
+const $content: ViewStyle = {
+    padding: 16,
+};
+const $footerComponent: ViewStyle = {
+    borderTopColor: colors.gray[300],
+    borderTopWidth: 0.5,
+    padding: 16,
+};

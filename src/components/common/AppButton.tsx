@@ -10,12 +10,12 @@ import {
 import { AppIcon } from './AppIcon';
 import { AppText } from './AppText';
 
-const AppButtonIconComonent = ({
+const AppButtonIconComonent: React.FC<AppButtonIconComonentType> = ({
     size,
     position = 'left',
     iconName,
     iconColor,
-}: AppButtonIconComonentType) => {
+}) => {
     return (
         <View
             style={{

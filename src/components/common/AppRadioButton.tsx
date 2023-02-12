@@ -1,20 +1,10 @@
+import { AppRadioButtonType } from 'constants/types';
 import { colors } from 'assets/theme/colors';
 import { useState } from 'react';
-import { Pressable, StyleSheet, TextProps, View } from 'react-native';
+import { Pressable, View, ViewStyle } from 'react-native';
 import { AppEmptySpace } from './AppEmptySpace';
 import { AppIcon } from './AppIcon';
 import { AppText } from './AppText';
-
-type AppRadioButtonType = {
-    onPress: () => any;
-    text: string;
-    checkBoxSize?: number;
-    textStyle?: TextProps;
-    isEnabled?: boolean;
-    status?: boolean;
-    direction?: 'right' | 'left';
-    width?: number | '100%';
-};
 
 export const AppRadioButton: React.FC<AppRadioButtonType> = ({
     onPress,
@@ -38,7 +28,7 @@ export const AppRadioButton: React.FC<AppRadioButtonType> = ({
     return (
         <View
             style={[
-                styles.container,
+                $container,
                 { width: width },
                 { flexDirection: isTextDirectionRight ? 'row' : 'row-reverse' },
             ]}>
@@ -65,10 +55,9 @@ export const AppRadioButton: React.FC<AppRadioButtonType> = ({
     );
 };
 
-const styles = StyleSheet.create({
-    container: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    },
-});
+// Styles
+const $container: ViewStyle = {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+};
