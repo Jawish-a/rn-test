@@ -1,8 +1,13 @@
-import { colors } from 'assets/theme/colors';
 import { AppButtonIconComonentType, AppButtonType } from 'constants/types';
-import React from 'react';
-import { Pressable, PressableProps, StyleSheet, View } from 'react-native';
-import AppIcon from './AppIcon';
+import { colors } from 'assets/theme/colors';
+import {
+    Pressable,
+    PressableProps,
+    View,
+    ViewStyle,
+    TextStyle,
+} from 'react-native';
+import { AppIcon } from './AppIcon';
 import { AppText } from './AppText';
 
 const AppButtonIconComonent = ({
@@ -29,7 +34,7 @@ export const AppButton: React.FC<PressableProps & AppButtonType> = ({
     size = 12,
     textValue,
     icon,
-    iconPosition,
+    iconPosition = 'left',
     isEnabled = true,
     ...otherProps
 }) => {
@@ -39,8 +44,8 @@ export const AppButton: React.FC<PressableProps & AppButtonType> = ({
     return (
         <Pressable
             style={[
-                styles.basic,
-                !isEnabled && styles.disabled,
+                $basic,
+                !isEnabled && $disabled,
                 {
                     paddingHorizontal: size,
                     paddingVertical: size / 2,
@@ -53,12 +58,14 @@ export const AppButton: React.FC<PressableProps & AppButtonType> = ({
                     size={size}
                     position={iconPosition ?? 'left'}
                     iconName={icon}
-                    iconColor={!isEnabled ? styles.disabled.color : undefined}
+                    iconColor={
+                        !isEnabled ? $disabled.color : colors.theme.black
+                    }
                 />
             )}
             <AppText
                 variant={'label'}
-                style={[styles.label, !isEnabled && styles.disabled]}>
+                style={[$label, !isEnabled && $disabled]}>
                 {textValue ?? ''}
             </AppText>
             {showRightIcon && (
@@ -66,27 +73,28 @@ export const AppButton: React.FC<PressableProps & AppButtonType> = ({
                     size={size}
                     position={'right'}
                     iconName={icon}
-                    iconColor={!isEnabled ? styles.disabled.color : undefined}
+                    iconColor={
+                        !isEnabled ? $disabled.color : colors.theme.black
+                    }
                 />
             )}
         </Pressable>
     );
 };
 
-const styles = StyleSheet.create({
-    basic: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderColor: colors.theme.primary,
-        borderWidth: 1,
-        flexDirection: 'row',
-    },
-    label: {
-        textTransform: 'uppercase',
-    },
-    disabled: {
-        backgroundColor: colors.gray[300],
-        borderColor: colors.gray[400],
-        color: colors.gray[500],
-    },
-});
+// Styles
+const $basic: ViewStyle = {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderColor: colors.theme.primary,
+    borderWidth: 1,
+    flexDirection: 'row',
+};
+const $label: TextStyle = {
+    textTransform: 'uppercase',
+};
+const $disabled: TextStyle = {
+    backgroundColor: colors.gray[300],
+    borderColor: colors.gray[400],
+    color: colors.gray[500],
+};

@@ -1,6 +1,5 @@
 import { AppButtonGroupType } from 'constants/types';
 import { colors } from 'assets/theme/colors';
-import React from 'react';
 import { Pressable, PressableProps, StyleSheet, View } from 'react-native';
 import { AppText } from './AppText';
 

@@ -2,6 +2,8 @@
     "name": "AwesomeTSProject",
     "version": "0.0.1",
     "private": true,
+    "author": "Ali Jawish",
+    "license": "MIT",
     "scripts": {
         "android": "react-native run-android",
         "ios": "react-native run-ios",
@@ -42,7 +44,7 @@
         "i18next": "^22.4.9",
         "react": "18.2.0",
         "react-i18next": "^12.1.4",
-        "react-native": "0.71.1",
+        "react-native": "0.71.2",
         "react-native-code-push": "^7.1.0",
         "react-native-config": "^1.5.0",
         "react-native-fast-image": "^8.6.3",

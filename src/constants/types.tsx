@@ -1,3 +1,5 @@
+import { ColorValue, ViewProps } from 'react-native';
+
 //
 export type AppEmptySpaceType = {
     height?: number;
@@ -30,7 +32,26 @@ export type AppButtonType = {
     onPress: () => void;
     size: number;
     textValue: string;
-    icon: JSX.Element;
-    iconPosition: string;
+    icon: string;
+    iconPosition: 'left' | 'right';
     isEnabled: boolean;
+};
+
+export type AppAvatarType = {
+    size: number;
+    shape?: 'round' | 'rounded' | 'square';
+    alt: string;
+};
+
+export type AppBadge = ViewProps & {
+    textValue: string;
+    size: number;
+    status: 'primary' | 'success' | 'info' | 'light' | 'warning' | 'danger';
+};
+
+export type AppButtonIconComonentType = {
+    size: number;
+    position: 'left' | 'right';
+    iconName: string;
+    iconColor: ColorValue | undefined;
 };

@@ -1,7 +1,6 @@
 import { colors } from 'assets/theme/colors';
 import { typography } from 'assets/theme/typography';
 import useTypography from 'hooks/useTypography';
-import React from 'react';
 import { StyleSheet, Text, TextProps } from 'react-native';
 
 type TypographyVariant = keyof typeof typography;

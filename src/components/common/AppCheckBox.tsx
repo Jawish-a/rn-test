@@ -1,8 +1,8 @@
 import { colors } from 'assets/theme/colors';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Pressable, StyleSheet, TextProps, View } from 'react-native';
-import AppEmptySpace from './AppEmptySpace';
-import AppIcon from './AppIcon';
+import { AppEmptySpace } from './AppEmptySpace';
+import { AppIcon } from './AppIcon';
 import { AppText } from './AppText';
 
 type AppCheckBoxType = {

@@ -1,13 +1,7 @@
+import { AppBadge } from 'constants/types';
 import { colors } from 'assets/theme/colors';
-import React from 'react';
-import { View, ViewProps } from 'react-native';
+import { View } from 'react-native';
 import { AppText } from './AppText';
-
-type AppBadge = ViewProps & {
-    textValue: string;
-    size: number;
-    status: 'primary' | 'success' | 'info' | 'light' | 'warning' | 'danger';
-};
 
 export const AppButton: React.FC<AppBadge> = ({ textValue, size, status }) => {
     return (

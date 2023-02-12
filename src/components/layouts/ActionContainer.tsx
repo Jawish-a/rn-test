@@ -1,5 +1,4 @@
-import AppIcon from 'components/common/AppIcon';
-import React from 'react';
+import { AppIcon } from 'components/common/AppIcon';
 import {
     StyleSheet,
     TouchableOpacity,

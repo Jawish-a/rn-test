@@ -1,10 +1,9 @@
 import { colors } from 'assets/theme/colors';
-import React from 'react';
 import { useColorScheme } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { IconProps } from 'react-native-vector-icons/Icon';
 
-const AppIcon: React.FC<IconProps> = ({ color, ...props }) => {
+export const AppIcon: React.FC<IconProps> = ({ color, ...props }) => {
     const isDarkMode = useColorScheme() === 'dark';
 
     return (
@@ -21,5 +20,3 @@ const AppIcon: React.FC<IconProps> = ({ color, ...props }) => {
         />
     );
 };
-
-export default AppIcon;

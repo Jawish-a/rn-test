@@ -1,6 +1,5 @@
 import { AppCardType } from 'constants/types';
 import { colors } from 'assets/theme/colors';
-import React from 'react';
 import { StyleSheet, View, ViewProps } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { AppText } from './AppText';

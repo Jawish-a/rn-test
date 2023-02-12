@@ -10,7 +10,7 @@ export const MiddleTextContainer: React.FC<
 > = ({ title }) => {
     return (
         <View style={styles.textContainer}>
-            <AppText variant={'label'} style={{ textTransform: 'uppercase' }}>
+            <AppText variant={'s1'} style={{ textTransform: 'uppercase' }}>
                 {title}
             </AppText>
         </View>

@@ -1,7 +1,7 @@
 import { colors } from 'assets/theme/colors';
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { View, TextInput, TextInputProps, StyleSheet } from 'react-native';
-import AppIcon from './AppIcon';
+import { AppIcon } from './AppIcon';
 import { AppText } from './AppText';
 
 type AppTextInputType = TextInputProps & {

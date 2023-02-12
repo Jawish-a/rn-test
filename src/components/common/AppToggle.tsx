@@ -1,6 +1,5 @@
 import { AppSwitchType } from 'constants/types';
 import { colors } from 'assets/theme/colors';
-import React from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { PanGestureHandler } from 'react-native-gesture-handler';
 import Animated, {
@@ -13,7 +12,7 @@ import Animated, {
     useSharedValue,
     withTiming,
 } from 'react-native-reanimated';
-import AppEmptySpace from './AppEmptySpace';
+import { AppEmptySpace } from './AppEmptySpace';
 import { AppText } from './AppText';
 
 const WIDTH = 50;
