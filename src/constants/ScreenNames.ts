@@ -1,12 +1,14 @@
-export const SCREEN_NAMES: { [name: string]: string } = {
-    home: 'HOME_SCREEN',
-    settings: 'SETTINGS_SCREEN',
-    notification: 'NOTIFICATION_SCREEN',
-    another: 'ANOTHER_SCREEN',
-    typographyExample: 'TYPOGRAPHY_EXAMPLE_SCREEN',
+import { ScreenNamesType } from './types';
+
+export const SCREEN_NAMES: ScreenNamesType = {
+    HOME_SCREEN: 'HOME_SCREEN',
+    SETTINGS_SCREEN: 'SETTINGS_SCREEN',
+    NOTIFICATION_SCREEN: 'NOTIFICATION_SCREEN',
+    ANOTHER_SCREEN: 'ANOTHER_SCREEN',
+    TYPOGRAPHY_EXAMPLE_SCREEN: 'TYPOGRAPHY_EXAMPLE_SCREEN',
 };
 
 export const STACK_NAMES = {
-    tabStack: 'TAB_STACK',
-    homeStack: 'HOME_STACK',
+    TAB_STACK: 'TAB_STACK',
+    HOME_STACK: 'HOME_STACK',
 };

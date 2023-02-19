@@ -4,26 +4,29 @@ import { AnotherScreen } from 'screens/Another.Screen';
 import { HomeScreen } from 'screens/Home.Screen';
 import { TypographyExampleScreen } from 'screens/TypographyExample.Screen';
 
-const Stack = createNativeStackNavigator();
+const HomeStackNavigator = createNativeStackNavigator();
 
 export const HomeStack = () => {
     return (
-        <Stack.Navigator
+        <HomeStackNavigator.Navigator
             screenOptions={{
                 headerShown: false,
                 // navigationBarHidden: true,
                 // animation: 'slide_from_right',
                 // contentStyle: {backgroundColor: 'red'},
             }}>
-            <Stack.Screen name={SCREEN_NAMES.home} component={HomeScreen} />
-            <Stack.Screen
-                name={SCREEN_NAMES.another}
+            <HomeStackNavigator.Screen
+                name={SCREEN_NAMES.HOME_SCREEN}
+                component={HomeScreen}
+            />
+            <HomeStackNavigator.Screen
+                name={SCREEN_NAMES.ANOTHER_SCREEN}
                 component={AnotherScreen}
             />
-            <Stack.Screen
-                name={SCREEN_NAMES.typographyExample}
+            <HomeStackNavigator.Screen
+                name={SCREEN_NAMES.TYPOGRAPHY_EXAMPLE_SCREEN}
                 component={TypographyExampleScreen}
             />
-        </Stack.Navigator>
+        </HomeStackNavigator.Navigator>
     );
 };

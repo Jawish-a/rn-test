@@ -3,11 +3,11 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NotificationsScreen } from 'screens/Notifications.Screen';
 import { TabStack } from './Tab.Stack';
 
-const Drawer = createDrawerNavigator();
+const DrawerNavigator = createDrawerNavigator();
 
 export const MainStack = () => {
     return (
-        <Drawer.Navigator
+        <DrawerNavigator.Navigator
             useLegacyImplementation={false}
             screenOptions={{
                 headerShown: false,
@@ -15,12 +15,15 @@ export const MainStack = () => {
                 // swipeEdgeWidth: 0,
                 // unmountOnBlur: true,
             }}
-            initialRouteName={STACK_NAMES.tabStack}>
-            <Drawer.Screen name={STACK_NAMES.tabStack} component={TabStack} />
-            <Drawer.Screen
-                name={SCREEN_NAMES.notification}
+            initialRouteName={STACK_NAMES.TAB_STACK}>
+            <DrawerNavigator.Screen
+                name={STACK_NAMES.TAB_STACK}
+                component={TabStack}
+            />
+            <DrawerNavigator.Screen
+                name={SCREEN_NAMES.NOTIFICATION_SCREEN}
                 component={NotificationsScreen}
             />
-        </Drawer.Navigator>
+        </DrawerNavigator.Navigator>
     );
 };

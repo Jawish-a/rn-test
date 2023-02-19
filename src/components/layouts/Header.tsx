@@ -85,9 +85,9 @@ const $container: ViewStyle = {
     flexDirection: 'row',
     justifyContent: 'space-between',
 };
-const $textContainer: ViewStyle = {
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100%',
-    flex: 1,
-};
+// const $textContainer: ViewStyle = {
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     height: '100%',
+//     flex: 1,
+// };

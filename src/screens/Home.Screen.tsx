@@ -1,6 +1,5 @@
 import { SCREEN_NAMES } from 'constants/ScreenNames';
 import { useNavigation } from '@react-navigation/native';
-
 import { AppAvatar } from 'components/common/AppAvatar';
 import { AppButton } from 'components/common/AppButton';
 import { AppButtonGroup } from 'components/common/AppButtonGroup';
@@ -17,7 +16,7 @@ import { View } from 'react-native';
 import { getSystemLanguage, setLocalStorageLanguage } from 'utils/getLanguage';
 
 export const HomeScreen = () => {
-    const nav = useNavigation();
+    const { navigate } = useNavigation();
     const { t, i18n } = useTranslation();
     const [text, setText] = useState('');
     const [select, setSelect] = useState(true);
@@ -52,16 +51,15 @@ export const HomeScreen = () => {
                 </AppText>
 
                 <AppButtonGroup
-                    textValue={['hi', SCREEN_NAMES.typographyExample]}
+                    textValue={['hi', SCREEN_NAMES.TYPOGRAPHY_EXAMPLE_SCREEN]}
                     isEnabled={[true, true]}
                     size={12}
                     action={[
-                        () => {
-                            console.log('hi');
-                        },
-                        () => {
-                            nav.navigate(SCREEN_NAMES.typographyExample);
-                        },
+                        () => console.log('hi'),
+                        () =>
+                            navigate(
+                                SCREEN_NAMES.TYPOGRAPHY_EXAMPLE_SCREEN as never,
+                            ),
                     ]}
                 />
                 <AppAvatar

@@ -136,3 +136,11 @@ export type AppRadioButtonType = {
     direction?: 'right' | 'left';
     width?: number | '100%';
 };
+
+export type ScreenNamesType = {
+    HOME_SCREEN: string;
+    SETTINGS_SCREEN: string;
+    NOTIFICATION_SCREEN: string;
+    ANOTHER_SCREEN: string;
+    TYPOGRAPHY_EXAMPLE_SCREEN: string;
+};
